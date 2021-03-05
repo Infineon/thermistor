@@ -88,6 +88,7 @@ $(document).ready(function(){initNavTree('group__group__board__libs.html','');})
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">NTC Thermistor</div>  </div>
@@ -105,11 +106,22 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:structmtb__thermistor__ntc__gpio__t"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining the pins and adc channel used to interact with the ntc thermistor.  <a href="group__group__board__libs.html#structmtb__thermistor__ntc__gpio__t">More...</a><br /></td></tr>
 <tr class="separator:structmtb__thermistor__ntc__gpio__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga874b84708ef8a7b807cb610861c35e82"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga874b84708ef8a7b807cb610861c35e82">mtb_thermistor_ntc_wiring</a> { <br />
+&#160;&#160;<a class="el" href="group__group__board__libs.html#gga874b84708ef8a7b807cb610861c35e82a0ff321e646840ab9e25eb3436a08c849">MTB_THERMISTOR_NTC_WIRING_VIN_R_NTC_GND</a>, 
+<br />
+&#160;&#160;<a class="el" href="group__group__board__libs.html#gga874b84708ef8a7b807cb610861c35e82adab89af2cd7ae61a439f444168f962ee">MTB_THERMISTOR_NTC_WIRING_VIN_NTC_R_GND</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ga874b84708ef8a7b807cb610861c35e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the way the NTC thermistor is wired up: Vin-NTC-R-GND or Vin-R-NTC-GND.  <a href="group__group__board__libs.html#ga874b84708ef8a7b807cb610861c35e82">More...</a><br /></td></tr>
+<tr class="separator:ga874b84708ef8a7b807cb610861c35e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gad8550ff1adedfd91648b41f29bc8ba6c"><td class="memItemLeft" align="right" valign="top">cy_rslt_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#gad8550ff1adedfd91648b41f29bc8ba6c">mtb_thermistor_ntc_gpio_init</a> (<a class="el" href="group__group__board__libs.html#structmtb__thermistor__ntc__gpio__t">mtb_thermistor_ntc_gpio_t</a> *obj, cyhal_adc_t *adc, cyhal_gpio_t gnd, cyhal_gpio_t vdd, cyhal_gpio_t out, <a class="el" href="group__group__board__libs.html#structmtb__thermistor__ntc__gpio__cfg__t">mtb_thermistor_ntc_gpio_cfg_t</a> *cfg)</td></tr>
-<tr class="memdesc:gad8550ff1adedfd91648b41f29bc8ba6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the ADC Channel and Pins to communicate with the thermistor.  <a href="#gad8550ff1adedfd91648b41f29bc8ba6c">More...</a><br /></td></tr>
-<tr class="separator:gad8550ff1adedfd91648b41f29bc8ba6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga648bda6c853bdea6d76e603fe7215ab4"><td class="memItemLeft" align="right" valign="top">cy_rslt_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga648bda6c853bdea6d76e603fe7215ab4">mtb_thermistor_ntc_gpio_init</a> (<a class="el" href="group__group__board__libs.html#structmtb__thermistor__ntc__gpio__t">mtb_thermistor_ntc_gpio_t</a> *obj, cyhal_adc_t *adc, cyhal_gpio_t gnd, cyhal_gpio_t vdd, cyhal_gpio_t out, <a class="el" href="group__group__board__libs.html#structmtb__thermistor__ntc__gpio__cfg__t">mtb_thermistor_ntc_gpio_cfg_t</a> *cfg, <a class="el" href="group__group__board__libs.html#ga874b84708ef8a7b807cb610861c35e82">mtb_thermistor_ntc_wiring</a> wiring)</td></tr>
+<tr class="memdesc:ga648bda6c853bdea6d76e603fe7215ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the ADC Channel and Pins to communicate with the thermistor.  <a href="#ga648bda6c853bdea6d76e603fe7215ab4">More...</a><br /></td></tr>
+<tr class="separator:ga648bda6c853bdea6d76e603fe7215ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga03a63ba0021b2039c22414336629aa91"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga03a63ba0021b2039c22414336629aa91">mtb_thermistor_ntc_gpio_get_temp</a> (<a class="el" href="group__group__board__libs.html#structmtb__thermistor__ntc__gpio__t">mtb_thermistor_ntc_gpio_t</a> *obj)</td></tr>
 <tr class="memdesc:ga03a63ba0021b2039c22414336629aa91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the temperature reading, in degrees C, from the thermistor.  <a href="#ga03a63ba0021b2039c22414336629aa91">More...</a><br /></td></tr>
 <tr class="separator:ga03a63ba0021b2039c22414336629aa91"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,13 +208,42 @@ Voltage output. </td></tr>
 cfg</td>
 <td class="fielddoc">
 Ptr to thermistor cfg structure. </td></tr>
+<tr><td class="fieldtype">
+<a id="aae1f414778b719e0d1a6d7bbc33dc560"></a><a class="el" href="group__group__board__libs.html#ga874b84708ef8a7b807cb610861c35e82">mtb_thermistor_ntc_wiring</a></td>
+<td class="fieldname">
+wiring</td>
+<td class="fielddoc">
+How the thermistor is wired up. </td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga874b84708ef8a7b807cb610861c35e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga874b84708ef8a7b807cb610861c35e82">&#9670;&nbsp;</a></span>mtb_thermistor_ntc_wiring</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group__group__board__libs.html#ga874b84708ef8a7b807cb610861c35e82">mtb_thermistor_ntc_wiring</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Defines the way the NTC thermistor is wired up: Vin-NTC-R-GND or Vin-R-NTC-GND. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga874b84708ef8a7b807cb610861c35e82a0ff321e646840ab9e25eb3436a08c849"></a>MTB_THERMISTOR_NTC_WIRING_VIN_R_NTC_GND&#160;</td><td class="fielddoc"><p>The thermistor is connected to Ground with the resister between it and Vin. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga874b84708ef8a7b807cb610861c35e82adab89af2cd7ae61a439f444168f962ee"></a>MTB_THERMISTOR_NTC_WIRING_VIN_NTC_R_GND&#160;</td><td class="fielddoc"><p>The thermistor is connected to Vin with the resister between it and ground. </p>
+</td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gad8550ff1adedfd91648b41f29bc8ba6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad8550ff1adedfd91648b41f29bc8ba6c">&#9670;&nbsp;</a></span>mtb_thermistor_ntc_gpio_init()</h2>
+<a id="ga648bda6c853bdea6d76e603fe7215ab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga648bda6c853bdea6d76e603fe7215ab4">&#9670;&nbsp;</a></span>mtb_thermistor_ntc_gpio_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,7 +282,13 @@ Ptr to thermistor cfg structure. </td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="group__group__board__libs.html#structmtb__thermistor__ntc__gpio__cfg__t">mtb_thermistor_ntc_gpio_cfg_t</a> *&#160;</td>
-          <td class="paramname"><em>cfg</em>&#160;</td>
+          <td class="paramname"><em>cfg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__group__board__libs.html#ga874b84708ef8a7b807cb610861c35e82">mtb_thermistor_ntc_wiring</a>&#160;</td>
+          <td class="paramname"><em>wiring</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -261,6 +308,7 @@ Ptr to thermistor cfg structure. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vdd</td><td>VDD reference pin </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">out</td><td>Voltage output pin </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cfg</td><td>Pointer to the cfg object containing the thermistor constants </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">wiring</td><td>How the circuit is wired up </td></tr>
   </table>
   </dd>
 </dl>

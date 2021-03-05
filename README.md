@@ -43,7 +43,9 @@ int main(void)
     result = cyhal_adc_init(&adc, CY8CKIT_028_EPD_PIN_THERM_OUT1, NULL);
 
     /* Initialize thermistor */
-    result = mtb_thermistor_ntc_gpio_init(&thermistor, &adc, CY8CKIT_028_EPD_PIN_THERM_GND, CY8CKIT_028_EPD_PIN_THERM_VDD, CY8CKIT_028_EPD_PIN_THERM_OUT1, &thermistor_cfg);
+    result = mtb_thermistor_ntc_gpio_init(&thermistor, &adc,
+        CY8CKIT_028_EPD_PIN_THERM_GND, CY8CKIT_028_EPD_PIN_THERM_VDD, CY8CKIT_028_EPD_PIN_THERM_OUT1,
+        &thermistor_cfg, MTB_THERMISTOR_NTC_WIRING_VIN_R_NTC_GND);
     CY_ASSERT(result == CY_RSLT_SUCCESS);
 
     for (;;)
@@ -67,4 +69,4 @@ int main(void)
 * [PSoC 6 Resources - KBA223067](https://community.cypress.com/docs/DOC-14644)
 
 ---
-© Cypress Semiconductor Corporation, 2019-2020.
+© Cypress Semiconductor Corporation, 2019-2021.

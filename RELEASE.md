@@ -1,12 +1,17 @@
 # Thermistor (Temperature Sensor) Release Notes
 
-This library provides functions for reading a thermistor temperature sensor as used on some shields.
+This library provides functions for reading a thermistor temperature sensor as used on some boards and shields.
 
 ### What's Included?
 * APIs for initializing/de-initializing the driver
 * APIs for reading temperature
 
 ### What Changed?
+#### v2.0.0
+* mtb_thermistor_ntc_gpio_init signature changed to add wiring.
+cy_rslt_t mtb_thermistor_ntc_gpio_init(mtb_thermistor_ntc_gpio_t* obj, cyhal_adc_t* adc,
+                                        cyhal_gpio_t gnd, cyhal_gpio_t vdd, cyhal_gpio_t out,
+                                        mtb_thermistor_ntc_gpio_cfg_t* cfg, mtb_thermistor_ntc_wiring wiring)
 #### v1.0.0
 * Initial release
 
@@ -15,10 +20,12 @@ This version of the thermistor library was validated for compatibility with the 
 
 | Software and Tools                        | Version |
 | :---                                      | :----:  |
-| ModusToolbox Software Environment         | 2.0     |
-| GCC Compiler                              | 7.4     |
-| IAR Compiler                              | 8.32    |
+| ModusToolbox Software Environment         | 2.2     |
+| GCC Compiler                              | 9.3     |
+| IAR Compiler                              | 8.4     |
 | ARM Compiler 6                            | 6.11    |
+
+Minimum required ModusToolbox Software Environment: v2.0
 
 ### More information
 
@@ -31,4 +38,4 @@ This version of the thermistor library was validated for compatibility with the 
 * [PSoC 6 Resources - KBA223067](https://community.cypress.com/docs/DOC-14644)
 
 ---
-© Cypress Semiconductor Corporation, 2019-2020.
+© Cypress Semiconductor Corporation, 2019-2021.
