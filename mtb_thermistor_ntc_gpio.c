@@ -6,7 +6,9 @@
  *
  ***************************************************************************************************
  * \copyright
- * Copyright 2018-2021 Cypress Semiconductor Corporation
+ * Copyright 2018-2021 Cypress Semiconductor Corporation (an Infineon company) or
+ * an affiliate of Cypress Semiconductor Corporation
+ *
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -50,27 +52,34 @@ cy_rslt_t mtb_thermistor_ntc_gpio_init(mtb_thermistor_ntc_gpio_t* obj, cyhal_adc
     obj->cfg = cfg;
     obj->wiring = wiring;
 
-    cy_rslt_t result = CY_RSLT_SUCCESS;
+    cy_rslt_t result;
 
     result = cyhal_gpio_init(vdd, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 0u);
     if (CY_RSLT_SUCCESS == result)
     {
         obj->vdd = vdd;
+        result = cyhal_gpio_init(gnd, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 0u);
     }
 
-    result = cyhal_gpio_init(gnd, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, 0u);
     if (CY_RSLT_SUCCESS == result)
     {
         obj->gnd = gnd;
+
+        #if (CYHAL_API_VERSION >= 2)
+        static const cyhal_adc_channel_config_t DEFAULT_CHAN_CONFIG =
+            { .enable_averaging = false, .min_acquisition_ns = 10u, .enabled = true };
+        result = cyhal_adc_channel_init_diff(&obj->channel, adc, out, CYHAL_ADC_VNEG,
+                                             &DEFAULT_CHAN_CONFIG);
+        #else // HAL API version 1
+        result = cyhal_adc_channel_init(&obj->channel, adc, out);
+        #endif
     }
 
-    result = cyhal_adc_channel_init(&obj->channel, adc, out);
     if (CY_RSLT_SUCCESS == result)
     {
         obj->out = out;
     }
-
-    if (CY_RSLT_SUCCESS != result)
+    else
     {
         mtb_thermistor_ntc_gpio_free(obj);
     }
@@ -99,8 +108,8 @@ float mtb_thermistor_ntc_gpio_get_temp(mtb_thermistor_ntc_gpio_t* obj)
 
     // Calculate thermistor resistance
     float rThermistor = (obj->wiring == MTB_THERMISTOR_NTC_WIRING_VIN_R_NTC_GND)
-        ? (obj->cfg->r_ref * (voltage_therm)) / ((float)(voltage_ref))
-        : (obj->cfg->r_ref * (voltage_ref)) / ((float)(voltage_therm));
+        ? ((obj->cfg->r_ref * (voltage_therm)) / ((float)(voltage_ref)))
+        : ((obj->cfg->r_ref * (voltage_ref)) / ((float)(voltage_therm)));
 
     // Calculate thermistor temperature
     float temperature = (obj->cfg->b_const / (logf(rThermistor / obj->cfg->r_infinity))) +
